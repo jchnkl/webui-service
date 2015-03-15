@@ -16,7 +16,7 @@ function
 getCompletions(request, response)
 {
   var cb = function(data, s, j) { response(data); };
-  $.getJSON("http://localhost:8008/" + request.term, null, cb);
+  $.getJSON("http://localhost:8008/complete", request.term, cb);
 }
 
 $(function() {
