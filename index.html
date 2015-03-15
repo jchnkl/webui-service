@@ -37,10 +37,10 @@ showAnagrams(anagrams)
 }
 
 $(function() {
-  $( "#tags" ).autocomplete({ source: getCompletions })
+  $( "#input" ).autocomplete({ source: getCompletions })
               .keypress(function(event) {
                 if (event.keyCode == $.ui.keyCode.ENTER) {
-                  var word = $("#tags").val();
+                  var word = $("#input").val();
                   getAnagrams(word, showAnagrams);
                 }
               });
@@ -52,8 +52,7 @@ $(function() {
 
 <body>
   <div class="ui-widget">
-    <label for="tags">Tags: </label>
-    <input id="tags">
+    <input id="input">
   </div>
   <div id="anagrams">
   </div>
