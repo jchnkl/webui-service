@@ -1,29 +1,29 @@
 <!doctype html>
-<html lang="en">
+<html lang='en'>
   <head>
-    <meta charset="utf-8">
+    <meta charset='utf-8'>
     <title>jQuery UI Autocomplete - Default functionality</title>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.js"></script>
-    <script type="text/javascript" src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <link rel='stylesheet' href='http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css'>
+    <script type='text/javascript' src='http://code.jquery.com/jquery-1.10.2.js'></script>
+    <script type='text/javascript' src='http://code.jquery.com/ui/1.11.4/jquery-ui.js'></script>
 
-    <link rel="stylesheet" href="http://jqueryui.com/jquery-wp-content/themes/jquery/css/base.css?v=1">
-    <link rel="stylesheet" href="http://jqueryui.com/jquery-wp-content/themes/jqueryui.com/style.css">
+    <link rel='stylesheet' href='http://jqueryui.com/jquery-wp-content/themes/jquery/css/base.css?v=1'>
+    <link rel='stylesheet' href='http://jqueryui.com/jquery-wp-content/themes/jqueryui.com/style.css'>
 
-<script type="text/javascript">
+<script type='text/javascript'>
 
 function
 getCompletions(request, response)
 {
   var cb = function(data, s, j) { response(data); };
-  $.getJSON("http://localhost:8008/complete", request.term, cb);
+  $.getJSON('http://localhost:8008/complete', request.term, cb);
 }
 
 function
 getAnagrams(word, response)
 {
   var cb = function(data, s, j) { response(data); };
-  $.getJSON("http://localhost:8118/anagram", word, cb);
+  $.getJSON('http://localhost:8118/anagram', word, cb);
 }
 
 function
@@ -37,12 +37,12 @@ showAnagrams(anagrams)
 }
 
 $(function() {
-  $( "#input" ).autocomplete({ source: getCompletions })
+  $( '#input' ).autocomplete({ source: getCompletions })
               .keypress(function(event) {
                 if (event.keyCode == $.ui.keyCode.ENTER) {
-                  var word = $("#input").val();
+                  var word = $('#input').val();
                   $('#input').val('');
-                  $('#input').autocomplete("close");
+                  $('#input').autocomplete('close');
                   getAnagrams(word, showAnagrams);
                 }
               });
@@ -53,10 +53,10 @@ $(function() {
 </head>
 
 <body>
-  <div class="ui-widget">
-    <input id="input">
+  <div class='ui-widget'>
+    <input id='input'>
   </div>
-  <div id="anagrams">
+  <div id='anagrams'>
   </div>
 </body>
 
