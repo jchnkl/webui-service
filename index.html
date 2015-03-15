@@ -26,12 +26,22 @@ getAnagrams(word, response)
   $.getJSON("http://localhost:8118/anagram", word, cb);
 }
 
+function
+showAnagrams(anagrams)
+{
+  $('#anagrams').empty();
+  var ul = $('<ul>').appendTo('#anagrams');
+  $(anagrams).each(function(index, item) {
+    ul.append($(document.createElement('li')).text(item));
+  });
+}
+
 $(function() {
   $( "#tags" ).autocomplete({ source: getCompletions })
               .keypress(function(event) {
                 if (event.keyCode == $.ui.keyCode.ENTER) {
                   var word = $("#tags").val();
-                  getAnagrams(word, alert);
+                  getAnagrams(word, showAnagrams);
                 }
               });
 });
@@ -44,6 +54,8 @@ $(function() {
   <div class="ui-widget">
     <label for="tags">Tags: </label>
     <input id="tags">
+  </div>
+  <div id="anagrams">
   </div>
 </body>
 
