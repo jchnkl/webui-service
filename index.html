@@ -27,9 +27,14 @@ getAnagrams(word, response)
 }
 
 function
-showAnagrams(anagrams)
+showAnagrams(word, anagrams)
 {
   $('#anagrams').empty();
+
+  var h = $('<h2>').appendTo($('<div>').appendTo('#anagrams'));
+  h.append('<br>');
+  h.append('Anagrams for "' + word + '"');
+
   var ul = $('<ul>').appendTo('#anagrams');
   $(anagrams).each(function(index, item) {
     ul.append($(document.createElement('li')).text(item));
@@ -43,7 +48,9 @@ $(function() {
                   var word = $('#input').val();
                   $('#input').val('');
                   $('#input').autocomplete('close');
-                  getAnagrams(word, showAnagrams);
+                  getAnagrams(word, function(anagrams) {
+                                      showAnagrams(word, anagrams);
+                                    });
                 }
               });
 });
