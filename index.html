@@ -41,6 +41,8 @@ $(function() {
               .keypress(function(event) {
                 if (event.keyCode == $.ui.keyCode.ENTER) {
                   var word = $("#input").val();
+                  $('#input').val('');
+                  $('#input').autocomplete("close");
                   getAnagrams(word, showAnagrams);
                 }
               });
