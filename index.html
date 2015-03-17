@@ -35,9 +35,11 @@ showAnagrams(word, anagrams)
   h.append('<br>');
   h.append('Anagrams for "' + word + '"');
 
-  var ul = $('<ul>').appendTo('#anagrams');
   $(anagrams).each(function(index, item) {
-    ul.append($(document.createElement('li')).text(item));
+    $('#anagrams').append(item);
+    if (index < anagrams.length - 1) {
+      $('#anagrams').append(', ');
+    }
   });
 }
 
