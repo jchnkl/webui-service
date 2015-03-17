@@ -1,16 +1,9 @@
 {-# LANGUAGE OverloadedStrings #-}
 
-import Web.Scotty
-import Network.Wai
 import Network.Wai.Handler.Warp (Port)
-import Types
-
-import qualified Data.ByteString.Char8 as BS
-import qualified Data.Text.Lazy as T
-import Control.Applicative
-import Control.Monad.IO.Class (liftIO)
-import Network.HTTP (Response(..), simpleHTTP, getRequest)
 import System.Environment (getArgs)
+import Web.Scotty
+import Types
 
 defaultPort :: Port
 defaultPort = 8888
