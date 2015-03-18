@@ -1,4 +1,4 @@
-# Web user interface for the [anagram web service](https://github.com/jotrk/docker-anagram-service)
+## Web user interface for the [anagram web service](https://github.com/jotrk/docker-anagram-service)
 
 The user interface is currently a very simplistic piece of HTML and Javascript,
 which uses the [autocomplete](http://jqueryui.com/autocomplete/) feature of the
